@@ -1,20 +1,41 @@
-// lab03_3.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// Lab_03_3.cpp
+// Шклярук Катерина
+// Лабораторна робота № 3.3
+// Розгалудження, задане графіком функції.
+// Варіант 31
 
 #include <iostream>
+#include <cmath>
+
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    double x;   // вхідний аргумент
+    double R;   // вхідний параметр
+    double y;   // результат обчислення виразу
+
+    cout << "R = "; cin >> R;
+    cout << "x = "; cin >> x;
+
+    // розгалуження в повній формі
+    if (x <= -1 - R)
+        y = -x - 1 - R;
+    else
+        if (-1 - R < x && x <= -1)
+            y = sqrt(R * R - (x + 1) * (x + 1));
+        else
+            if (-1 < x && x <= 1)
+                y = R;
+            else
+                if (1 < x && x <= 2)
+                    y = R - (1 + R) * (x - 1);
+                else
+                    y = -1;
+
+    cout << endl;
+    cout << "y = " << y << endl;
+
+    cin.get();
+    return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
